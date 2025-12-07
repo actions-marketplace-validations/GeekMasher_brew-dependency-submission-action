@@ -4,11 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
+ghastoolkit = "*"
 
 [dev-packages]
 black = "*"
 
-[requires]
-python_version = "3.11"
+[scripts]
+test = "python -m unittest discover -v -s ./tests -p 'test_*.py'"
+fmt = "black ./bldsa"
+lint = "black --check ./bldsa"
 
+vendor = "./vendor/update.sh"
